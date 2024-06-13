@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Queque</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+  <meta name="description" content="Queque">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lustria&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --tint-color: rgb(239, 236, 231);
+      --font-sans-serif: "Avenir", -apple-system, "Lato", sans-serif;
+      --font-serif: "Lustria", serif;
+    }
+
+    html {
+      margin: 0;
+      padding: 0;
+      font-size: 18px;
+    }
+
+    body {
+      margin: 0;
+      padding: 9vh 10vw 10vw 10vw;
+      max-width: 1400px;
+      background-color: var(--tint-color);
+      font-family: var(--font-sans-serif);
+      color: #030911;
+    }
+
+    .appear {
+      animation: appear 1s .3s forwards;
+      opacity: 0;
+    }
+
+    @keyframes appear {
+      0% {
+        transform: translateY(15px);
+        opacity: 0;
+      }
+
+      100% {
+        transform: none;
+        opacity: 1;
+      }
+    }
+
+    h1,
+    h2 {
+      margin: 0;
+      font-weight: inherit;
+      font-size: inherit;
+    }
+
+    p {
+      margin: 0;
+      line-height: 1.5;
+      font-weight: 500;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-stroke: .45px rgba(0, 0, 0, .1);
+    }
+
+    p+p {
+      margin-top: 0.3rem;
+    }
+
+    .page-header {
+      margin-bottom: 40px;
+      margin-left: -10px;
+    }
+
+    .page-title-sub {
+      margin: 0 0 0 5px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      opacity: .5;
+      font-family: var(--font-serif);
+    }
+
+    .page-title {
+      margin: -25px 0 0 0;
+      font-size: 4rem;
+      font-weight: 900;
+    }
+
+    .page-intro {
+      margin-bottom: 40px;
+    }
+
+    .section-header {
+      flex-basis: 100%;
+      font-weight: 900;
+    }
+
+    .contact {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 80px;
+    }
+
+    .contact a {
+      border: 3px solid black;
+      padding: 5px 10px;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      background-color: black;
+      color: var(--tint-color);
+    }
+
+    .products {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 45px;
+      margin: 20px 0;
+    }
+
+    .product {
+      max-width: 400px;
+    }
+
+    .product-content {
+      background-color: white;
+      padding: 20px 20px 15px 20px;
+    }
+
+    .product img {
+      width: 100%;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .product-title {
+      margin: 0 3px 5px 3px;
+      font-weight: 900;
+    }
+
+    .product-description {
+      margin-left: 3px;
+      font-size: 0.9rem;
+      font-family: var(--font-serif);
+    }
+
+    .product-labels {
+      margin-left: 3px;
+      margin-top: 10px;
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
+
+    .lightbox {
+      max-width: 80vw;
+      max-height: 80vh;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .lightbox::backdrop {
+      background-color: black;
+      opacity: 0.75;
+    }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    @media (max-width: 600px) {
+      html {
+        font-size: 17px;
+      }
+
+      body {
+        padding: 9vh 9vw 9vw 9vw;
+      }
+
+      .page-header {
+        margin-bottom: 20px;
+      }
+
+      .links a+a {
+        margin: 0 0 0 20px;
+      }
+
+      .product {
+        max-width: none;
+      }
+
+      .product-content {
+        background-color: white;
+        padding: 15px 15px 12px 15px;
+      }
+    }
+
+    @media (prefers-color-scheme:dark) {
+      :root {
+        --tint-color: #1e1e1e;
+      }
+
+      body {
+        color: #f5f4f1;
+      }
+
+      .product-content {
+        background-color: rgb(48, 48, 48);
+      }
+
+      .contact a {
+        border: 3px solid white;
+      }
+
+      .contact a:hover {
+        background-color: white;
+        color: #1e1e1e;
+      }
+    }
+  </style>
+</head>
+
+<body class="appear">
+  <header class="page-header">
+    <h1 class="page-title-sub">meubelontwerp</h1>
+    <h2 class="page-title">queque</h2>
+  </header>
+  <section class="page-intro">
+    <p>Wij ontwerpen en maken meubels en accesoires die we mooi vinden. Als jij ze ook mooi vindt dan kun je ze kopen.
+    </p>
+    <!-- <p>Houten meubels, handgemaakt met oog voor detail en duurzaamheid.</p> -->
+    <!-- <p>Ik zou hier een heel diepgaand tekstje kunnen schrijven, waarin in uitleg waar mijn liefde voor hout en ontwerp
+    vandaan komt. In plaats daarvan zeg ik gewoon het volgende:</p> -->
+    <!-- <p>Interesse in een meubel of accessoire op maat? Neem contact en ik bespreek de mogelijkheden met je.</p> -->
+  </section>
+  <section class="contact">
+    <a href="mailto:hout@wardvanteijlingen.nl">Neem contact op</a>
+    <a href="#">Ga naar de webshop</a>
+  </section>
+  <h1 class="section-header">Portfolio</h1>
+  <section class="products">
+    <article class="product">
+      <div class="product-content">
+        <!-- <img
+          src="https://images.unsplash.com/photo-1571062617506-9bb190ed13d3?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          /> -->
+        <img src="images/emst-1.jpg" />
+        <h1 class="product-title">Emst</h1>
+        <p class="product-description">Een bijzettafeltje gemaakt van kersenhout en esdoorn. Het ontwerp is zo gemaakt
+          dat alleen &apos;langshout&apos; zichtbaar is.</p>
+        <p class="product-labels">40h x 30b x 40d &ndash; kersenhout, esdoorn</p>
+      </div>
+    </article>
+    <article class="product">
+      <div class="product-content">
+        <img
+          src="https://plus.unsplash.com/premium_photo-1681345599459-8dac0feb3491?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+        <h1 class="product-title">Yf</h1>
+        <p class="product-description">Een klein voetenbankje. Een ogenschijnlijk simpel ontwerp herbergt <a
+            href="images/formule.jpg" target="_blank">een boel
+            goniometrische complexiteit</a>. Geen zorgen, daar merken je voeten niets van.</p>
+        <p class="product-labels">39h x 40b x 32d &ndash; notenhout, ribstof</p>
+      </div>
+    </article>
+    <article class="product">
+      <div class="product-content">
+        <img
+          src="https://images.unsplash.com/photo-1603204077167-2fa0397f591f?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+        <h1 class="product-title">Loef</h1>
+        <p class="product-description">Een afgeronde, zachtere versie van het Yf-voetenbankje. Staat goed in je
+          hippe midcentury modern-interieur.</p>
+        <p class="product-labels">39h x 40b x 32d &ndash; notenhout, ribstof</p>
+      </div>
+    </article>
+    <article class="product">
+      <div class="product-content">
+        <img
+          src="https://images.unsplash.com/photo-1582131503261-fca1d1c0589f?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+        <h1 class="product-title">Vlechtuba</h1>
+        <p class="product-description">Elke arm is opgebouwd uit drie lagen notenhout, voorzichtig in
+          een mal gebogen en verlijmd tot een krul. &apos;Gefineerd&apos; heet dat officieel, klinkt extra cool.</p>
+        <p class="product-labels">30h x 14&#x2300; &ndash; notenhout, E27 fitting, 1&half; meter snoer</p>
+      </div>
+    </article>
+    <article class="product">
+      <div class="product-content">
+        <img src="images/klok-2.jpg" />
+        <h1 class="product-title">Klok</h1>
+        <p class="product-description">Een houten klok opgebouwd uit zes verschillende houtsoorten.</p>
+        <p class="product-labels">30&#x2300; &ndash; verschillende houtsoorten</p>
+      </div>
+    </article>
+    <article class="product">
+      <div class="product-content">
+        <img src="images/doosje1-2.jpg" />
+        <h1 class="product-title">Doosje &numero; 1</h1>
+        <p class="product-description">Een zeshoekig doosje, voor spulletjes of voor de mooi.</p>
+        <p class="product-labels">15hx 18d x 18d &ndash; meranti, afrormosia, eiken</p>
+      </div>
+    </article>
+  </section>
+  <dialog class="lightbox">Piet</dialog>
+</body>
+
+<script>
+  const dialog = document.querySelector("dialog.lightbox")
+
+  dialog.addEventListener("click", () => dialog.close());
+
+  document.querySelectorAll("img").forEach(img => {
+    img.addEventListener("click", () => {
+      dialog.showModal();
+      dialog.innerHTML = img.outerHTML
+    });
+  });
+</script>
+
+</html>
+
+<!-- {39-beta} / {tan(alpha)} = 32 - beta/{sin(alpha)} - beta * tan(pi/2-alpha) -->
