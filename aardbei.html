@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>aardbei.design</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+  <meta name="description" content="Queque">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lustria&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --color-brand: #FF5D5D;
+      --color-brand-light: #FDF8F8;
+      --font-body: "PT Sans", -apple-system, "Lato", sans-serif;
+      --font-titles: "PT Sans Caption", -apple-system, "Lato", sans-serif;
+      --font-serif: "Lustria", serif;
+    }
+
+    html {
+      margin: 0;
+      padding: 0;
+      font-size: 18px;
+    }
+
+    body {
+      margin: 0;
+      /* padding: 9vh 10vw 10vw 10vw; */
+      /* max-width: 1400px; */
+      background-color: var(--color-brand-light);
+      font-family: var(--font-body);
+      color: #030911;
+    }
+
+    .appear {
+      animation: appear 1s .3s forwards;
+      opacity: 0;
+    }
+
+    @keyframes appear {
+      0% {
+        transform: translateY(15px);
+        opacity: 0;
+      }
+
+      100% {
+        transform: none;
+        opacity: 1;
+      }
+    }
+
+    /** Typography **/
+
+    h1,
+    h2 {
+      margin: 0;
+      font-weight: inherit;
+      font-size: inherit;
+      font-family: var(--font-titles);
+    }
+
+    p {
+      margin: 0;
+      line-height: 1.5;
+      font-weight: 500;
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-stroke: .45px rgba(0, 0, 0, .1);
+    }
+
+    p a {
+      color: var(--color-brand);
+      text-decoration: none;
+      display: inline-block;
+      border-bottom: 1px dashed var(--color-brand);
+    }
+
+    p a:hover {
+      border-bottom-style: solid;
+    }
+
+    p+p {
+      margin-top: 1rem;
+    }
+
+    /** Sections **/
+
+    .section-light {
+      background-color: var(--color-brand-light);
+      color: var(--color-brand);
+      padding: 9vh 10vw 9vh 10vw;
+    }
+
+    .section-dark {
+      background-color: var(--color-brand);
+      color: var(--color-brand-light);
+      padding: 9vh 10vw 9vh 10vw;
+    }
+
+    .section-title {
+      flex-basis: 100%;
+      font-weight: 900;
+      font-size: 2.5rem;
+      margin-bottom: 2vh;
+    }
+
+    /** Page intro **/
+
+    .page-intro {
+      background-color: var(--color-brand-light);
+      color: var(--color-brand);
+      min-height: 70vh;
+      border-bottom: 8px dashed var(--color-brand);
+    }
+
+    .page-intro .section-title {
+      font-size: 6.5vw;
+      font-weight: 900;
+    }
+
+    .page-intro-header {
+      margin-bottom: 40px;
+    }
+
+    @keyframes shake {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      25% {
+        transform: rotate(8deg);
+      }
+
+      50% {
+        transform: rotate(0eg);
+      }
+
+      75% {
+        transform: rotate(-8deg);
+      }
+
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+
+    .page-intro-logo {
+      height: 60px;
+    }
+
+    .page-intro-logo:hover {
+      animation: shake 0.2s 2;
+    }
+
+    /** Contact **/
+
+    .contact {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 80px;
+    }
+
+    .contact a {
+      border: 3px solid var(--color-brand);
+      padding: 5px 10px;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      background-color: var(--color-brand);
+      color: white;
+    }
+
+    /** Portfolio **/
+
+    .portfolio {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 45px;
+    }
+
+    .portfolio-item {
+      max-width: 400px;
+      color: black;
+    }
+
+    .portfolio-item-content {
+      background-color: white;
+      padding: 18px 18px 13px 18px;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .portfolio-item-title {
+      margin: 0 3px 5px 3px;
+      font-weight: 900;
+    }
+
+    .portfolio-item-description {
+      margin-left: 3px;
+      font-size: 0.9rem;
+    }
+
+    .portfolio-item-labels {
+      margin-left: 3px;
+      margin-top: 10px;
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
+
+    /** Lightbox **/
+
+    .lightbox {
+      max-width: 80vw;
+      max-height: 80vh;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .lightbox::backdrop {
+      background-color: black;
+      opacity: 0.75;
+    }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    *[data-lightbox] {
+      cursor: pointer;
+    }
+
+    /** Responsive **/
+
+    @media (max-width: 600px) {
+      html {
+        font-size: 17px;
+      }
+
+      .section-light,
+      .section-dark {
+        padding: 9vh 9vw 9vw 9vw;
+      }
+
+      .page-intro-header {
+        margin-bottom: 20px;
+      }
+
+      .links a+a {
+        margin: 0 0 0 20px;
+      }
+
+      .portfolio-item {
+        max-width: none;
+      }
+
+      .portfolio-item-content {
+        background-color: white;
+        padding: 15px 15px 12px 15px;
+      }
+    }
+
+    /** Dark mode **/
+
+    @media (prefers-color-scheme:dark) {
+      body {
+        color: #f5f4f1;
+      }
+
+      .portfolio-item-content {
+        background-color: rgb(48, 48, 48);
+      }
+
+      .contact a {
+        border: 3px solid white;
+      }
+
+      .contact a:hover {
+        background-color: white;
+        color: #1e1e1e;
+      }
+    }
+  </style>
+</head>
+
+<body class="appear">
+  <section class="page-intro section-light">
+    <header class="page-intro-header">
+      <img class="page-intro-logo" src="images/logo-aardbei.svg" />
+      <h1 class="section-title">aardbei.design</h1>
+    </header>
+    <p>Wij ontwerpen en maken meubels en accesoires die we mooi vinden. Als jij ze ook mooi vindt dan kun je ze kopen.
+    </p>
+    <p>Aardbei maakt ook meubels op maat. Heb je een eigen idee, wens, of ontwerp? Neem dan contact op om samen
+      iets moois te maken.</p>
+    <div class="contact">
+      <a href="mailto:contact@aardbei.design">Stuur een email</a>
+      <a href="#">Ga naar de webshop</a>
+    </div>
+  </section>
+  <section class="portfolio section-dark">
+    <h1 class="section-title">Portfolio</h1>
+    <article class="portfolio-item">
+      <div class="portfolio-item-content">
+        <!-- <img
+          src="https://images.unsplash.com/photo-1571062617506-9bb190ed13d3?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          /> -->
+        <img data-lightbox="images/emst-1.jpg" src="images/emst-1.jpg" />
+        <h1 class="portfolio-item-title">Emst</h1>
+        <p class="portfolio-item-description">Een bijzettafeltje gemaakt van kersenhout en esdoorn. Het ontwerp is zo
+          gemaakt dat alleen &apos;langshout&apos; zichtbaar is.</p>
+        <p class="portfolio-item-labels">40h x 30b x 40d &ndash; kersenhout, esdoorn</p>
+      </div>
+    </article>
+    <article class="portfolio-item">
+      <div class="portfolio-item-content">
+        <img
+          data-lightbox="https://plus.unsplash.com/premium_photo-1681345599459-8dac0feb3491?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://plus.unsplash.com/premium_photo-1681345599459-8dac0feb3491?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+        <h1 class="portfolio-item-title">Yf</h1>
+        <p class="portfolio-item-description">Een klein voetenbankje. Een ogenschijnlijk simpel ontwerp herbergt een
+          boel <a href="images/formule.jpg" target="_blank" data-lightbox="images/formule.jpg">
+            goniometrische complexiteit</a>. Geen zorgen, daar merken je voeten niets van.</p>
+        <p class="portfolio-item-labels">39h x 40b x 32d &ndash; notenhout, ribstof</p>
+      </div>
+    </article>
+    <article class="portfolio-item">
+      <div class="portfolio-item-content">
+        <img
+          data-lightbox="https://images.unsplash.com/photo-1603204077167-2fa0397f591f?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://images.unsplash.com/photo-1603204077167-2fa0397f591f?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+        <h1 class="portfolio-item-title">Loef</h1>
+        <p class="portfolio-item-description">Een afgeronde, zachtere versie van het Yf-voetenbankje. Staat goed in je
+          hippe midcentury modern-interieur.</p>
+        <p class="portfolio-item-labels">39h x 40b x 32d &ndash; notenhout, ribstof</p>
+      </div>
+    </article>
+    <article class="portfolio-item">
+      <div class="portfolio-item-content">
+        <img
+          data-lightbox="https://images.unsplash.com/photo-1582131503261-fca1d1c0589f?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://images.unsplash.com/photo-1582131503261-fca1d1c0589f?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+        <h1 class="portfolio-item-title">Vlechtuba</h1>
+        <p class="portfolio-item-description">Elke arm is opgebouwd uit drie lagen notenhout, voorzichtig in
+          een mal gebogen en verlijmd tot een krul. &apos;Gefineerd&apos; heet dat officieel, klinkt extra cool.</p>
+        <p class="portfolio-item-labels">30h x 14&#x2300; &ndash; notenhout, E27 fitting, 1&half; meter snoer</p>
+      </div>
+    </article>
+    <article class="portfolio-item">
+      <div class="portfolio-item-content">
+        <img data-lightbox="images/klok-2.jpg" src="images/klok-2.jpg" />
+        <h1 class="portfolio-item-title">Klok</h1>
+        <p class="portfolio-item-description">Een houten klok opgebouwd uit zes verschillende houtsoorten.</p>
+        <p class="portfolio-item-labels">30&#x2300; &ndash; verschillende houtsoorten</p>
+      </div>
+    </article>
+    <article class="portfolio-item">
+      <div class="portfolio-item-content">
+        <img data-lightbox="images/doosje1-2.jpg" src="images/doosje1-2.jpg" />
+        <h1 class="portfolio-item-title">Doosje &numero; 1</h1>
+        <p class="portfolio-item-description">Een zeshoekig doosje, voor spulletjes of voor de mooi.</p>
+        <p class="portfolio-item-labels">15hx 18d x 18d &ndash; meranti, afrormosia, eiken</p>
+      </div>
+    </article>
+  </section>
+  <section class="custom-made section-light">
+    <h1 class="section-title">Zelf een leuk idee?</h1>
+    <p>Heb je een idee of een ontwerp voor een meubel of accessoire op maat?</p>
+    <p>Aardbei</p>
+    <p><a href="mailto:contact@aardbei.design">Neem contact op</a> en we bespreken de mogelijkheden met je.</p>
+  </section>
+  <dialog class="lightbox"><img /></dialog>
+</body>
+
+<script>
+  const dialog = document.querySelector("dialog.lightbox")
+  const dialogImage = document.querySelector("dialog.lightbox img")
+
+  dialog.addEventListener("click", () => dialog.close());
+
+  document.querySelectorAll("*[data-lightbox]").forEach(img => {
+    img.addEventListener("click", (event) => {
+      event.preventDefault()
+      dialog.showModal();
+      dialogImage.src = event.target.getAttribute("data-lightbox")
+    });
+  });
+</script>
+
+</html>
+
+<!-- {39-beta} / {tan(alpha)} = 32 - beta/{sin(alpha)} - beta * tan(pi/2-alpha) -->
